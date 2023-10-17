@@ -17,7 +17,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
+    <div className={styles.divMain}>
       <h2>API - OverWatch</h2>
       <div>
       {
