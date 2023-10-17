@@ -8,23 +8,23 @@ export default function Home() {
   const [apiData, setApiData] = useState(null);
 
   useEffect(() => {
-    const valorantFletch = async () => {
+    const overwatchFletch = async () => {
 
-      const datas = await valorant();
+      const datas = await overwatch();
       setApiData(datas);
     };
-    valorantFletch();
+    overwatchFletch();
   }, [])
 
   return (
-    <div className={styles.divMain}>
-      <h2 className={styles.title}>API - Valorant</h2>
-      <div className={styles.divAllCards}>
+    <div>
+      <h2>API - OverWatch</h2>
+      <div>
       {
         apiData ? (
           apiData.data.map((agent) => (
 
-            <div className={styles.divAgent}>
+            <div>
               <Agent key={agent.uuid} name={agent.displayName} image={agent.displayIcon} description={agent.description} skills={agent.abilities} />
             </div>
 
