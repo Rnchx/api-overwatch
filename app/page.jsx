@@ -1,6 +1,7 @@
 'use client'
-import overwatch from '@/models/agentesOver';
+import overwatch from '@/data/overwatchClass';
 import { useEffect, useState } from 'react';
+import Agent from './components/agent/Agent';
 import styles from './page.module.css';
 
 export default function Home() {
