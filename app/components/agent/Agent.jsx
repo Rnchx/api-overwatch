@@ -1,7 +1,7 @@
 'use client'
 import styles from './agent.module.css';
 
-const Agent = ({ key, portrait, description, role, location, hitpoints }) => {
+const Agent = ({ key, name, portrait, description, role, location, hitpoints }) => {
     return (
         <div key={key} className={styles.divCards}>
             <div className={styles.divTitleImg}>
