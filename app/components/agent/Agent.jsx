@@ -1,27 +1,17 @@
 'use client'
 import styles from './agent.module.css';
 
-const Agent = ({ key, name, portrait, description, role, location, hitpoints }) => {
+const Agent = ({ key, name, portrait, description, role, location, hitpoints, abilities }) => {
     return (
-        <div key={key} className={styles.divCards}>
-            <div className={styles.divTitleImg}>
-                <h1>{name}</h1>
-                <img src={portrait} alt={key} width={256} height={256} />
-            </div>
-
-
+        <div key={key}>
+            <h1>{name}</h1>
+            <img src={portrait} alt={name} height={350} width={350} />
             <p>{description}</p>
-            <h1 className={styles.title}>Skills:</h1>
-            <div className={styles.divSkills}>
-                {
-                    skills.map((skill) => (
-                        <div key={skill.uuid}>
-                            <h2 className={styles.titleSkills}>{skill.displayName}</h2>
-                            <img src={skill.displayIcon} alt={skill.uuid} width={64} height={64} />
-                        </div>
-                    ))
-                }
-            </div>
+            <p>{role}</p>
+            <p>Local de Origem: {location}</p>
+            
+            
+
         </div>
     )
 }
