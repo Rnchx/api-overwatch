@@ -22,10 +22,10 @@ export default function Home() {
       <div>
       {
         apiData ? (
-          apiData.data.map((agent) => (
+          apiData.heroes.data.map((agent) => (
 
             <div>
-              <Agent key={agent.uuid} name={agent.displayName} image={agent.displayIcon} description={agent.description} skills={agent.abilities} />
+              <Agent key={agent.key} name={agent.key} image={agent.portrait} role={agent.role} />
             </div>
 
           ))
