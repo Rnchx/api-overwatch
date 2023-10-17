@@ -8,7 +8,15 @@ const Agent = ({ key, name, portrait, description, role, location, hitpoints, ab
             <img src={portrait} alt={name} height={350} width={350} />
             <p className={styles.descriptionAgent}>{description}</p>
             <p className={styles.roleAgent}>{role}</p>
-            <p className={styles.locationAgent}>Local de Origem: {location}</p>p
+            <p className={styles.locationAgent}>Local de Origem: {location}</p>
+            <p>Shileds: {hitpoints.shields}</p>
+
+            {
+                abilities.map((ability) => (
+                    <p>Nome: {ability.name}</p>
+                ))
+            }
+
 
         </div>
     )
