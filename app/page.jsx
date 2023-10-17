@@ -26,7 +26,7 @@ export default function Home() {
           apiData ? (
             apiData.map((agent) => (
 
-              <Link href={'meninoCaurin'}>
+              <Link href={'eachAgent'}>
                 <div>
                   <p>Nome do agente: {agent.name}</p>
                   <p>Nome do agente: {agent.role}</p>
