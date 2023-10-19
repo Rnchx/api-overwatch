@@ -28,11 +28,18 @@ export default function Home({ params }) {
                             <p>Especialidade: {apiData.role}</p>
                             <img src={apiData.portrait} alt="" />
                             <div>
-                                <h2>Hitpoints:</h2>
+                                
                                 <p>Escudos: {apiData.hitpoints.shields}</p>
                                 <p>Vida: {apiData.hitpoints.health}</p>
                                 <p>Armadura: {apiData.hitpoints.armor}</p>
                                 <p>Total de vida: {apiData.hitpoints.total}</p>
+                            </div>
+                            <div>
+                                <br />
+                                <br />  
+                            <h2>Descrição</h2>
+
+                            <p>{apiData.description}</p>
                             </div>
                         </div>
 
