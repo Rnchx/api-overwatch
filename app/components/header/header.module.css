@@ -1,0 +1,15 @@
+.principal {
+    background-color: #202020;
+    min-height: 150px;
+    max-height: 150px;
+}
+
+.imagem{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
