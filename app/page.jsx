@@ -1,5 +1,6 @@
 'use client'
 import overwatch from '@/data/overwatchClass';
+import { agent } from '@/data/overwatchClass';
 import { useEffect, useState } from 'react';
 import Agent from './components/agent/Agent';
 import styles from './page.module.css';
@@ -7,41 +8,42 @@ import Link from 'next/link';
 
 export default function Home() {
 
-  const [apiData, setApiData] = useState(null);
+  const [apiDataO, setApiDataO] = useState(null);
+  const [apiDataA, setApiDataA] = useState(null);
 
   useEffect(() => {
     const overwatchFletch = async () => {
 
-      const datas = await overwatch();
-      setApiData(datas);
+      const datasO = await overwatch();
+      setApiDataO(datasO);
     };
     overwatchFletch();
   }, [])
 
+
+
   return (
     <div className={styles.divMain}>
-      <h2>API - OverWatch</h2>
-      <div>
-        {
-          apiData ? (
-            apiData.map((agent) => (
+      <div className={styles.mainContainer}>
+        <h2>API - OverWatch</h2>
+        <div>
+          {
+            apiDataO ? (
+              apiDataO.map((agent) => (
 
-              <Link href={'eachAgent'}>
-                <div>
-                  <p>Nome do agente: {agent.name}</p>
-                  <p>Nome do agente: {agent.role}</p>
-                  <img src={agent.portrait} alt="" />
-                  {/* <Agent key={agent.key} name={agent.key} image={agent.portrait} role={agent.role} /> */}
-                </div>
-              </Link>
+                <Link href={`eachAgent/${agent.key}`}>
+                  <div>
+                    <Agent key={agent.id} name={agent.name} portrait={agent.portrait} role={agent.role} />
+                  </div>
+                </Link>
 
-            ))
-          ) : (
-            <p>Loading...</p>
-          )
-        }
+              ))
+            ) : (
+              <p>Loading...</p>
+            )
+          }
+        </div>
       </div>
-
     </div>
   )
 }

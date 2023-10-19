@@ -1,25 +1,16 @@
 'use client'
 import { agent } from '@/data/overwatchClass';
 import { useEffect, useState } from 'react';
-import styles from '../page.module.css';
+import styles from './name.module.css';
 
-export default function Home() {
+export default function Home({ params }) {
 
     const [apiData, setApiData] = useState(null);
 
     useEffect(() => {
         const overwatchFletch = async () => {
 
-            const datas = await agent('Ana');
-            setApiData(datas);
-        };
-        overwatchFletch();
-    }, [])
-
-    useEffect(() => {
-        const overwatchFletch = async () => {
-
-            const datas = await agent('Ashe');
+            const datas = await agent(params.name);
             setApiData(datas);
         };
         overwatchFletch();
@@ -33,10 +24,9 @@ export default function Home() {
                     apiData ? (
 
                         <div>
-                            <p>Nome do agente: {apiData.name}</p>
-                            <p>Nome do agente: {apiData.role}</p>
+                            <p>Agente {apiData.name}</p>
+                            <p>Especialidade: {apiData.role}</p>
                             <img src={apiData.portrait} alt="" />
-
                             <div>
                                 <h2>Hitpoints:</h2>
                                 <p>Escudos: {apiData.hitpoints.shields}</p>
