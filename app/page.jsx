@@ -1,6 +1,5 @@
 'use client'
 import overwatch from '@/data/overwatchClass';
-import { agent } from '@/data/overwatchClass';
 import { useEffect, useState } from 'react';
 import Agent from './components/agent/Agent';
 import styles from './page.module.css';
@@ -33,7 +32,11 @@ export default function Home() {
 
                 <Link href={`eachAgent/${agent.key}`}>
                   <div>
-                    <Agent key={agent.id} name={agent.name} portrait={agent.portrait} role={agent.role} />
+                    <Agent
+                    key={agent.id}
+                    name={agent.name}
+                    portrait={agent.portrait}
+                    role={agent.role} />
                   </div>
                 </Link>
 

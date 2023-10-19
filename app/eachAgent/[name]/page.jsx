@@ -2,6 +2,7 @@
 import { agent } from '@/data/overwatchClass';
 import { useEffect, useState } from 'react';
 import styles from './name.module.css';
+import Name from '@/app/components/nameEachAgent/Name';
 
 export default function Home({ params }) {
 
@@ -24,6 +25,15 @@ export default function Home({ params }) {
                     apiData ? (
 
                         <div>
+                            <Name key={apiData.id}
+                            name={apiData.name}
+                            role={apiData.role}
+                            portrait={apiData.portrait}
+                            shields={apiData.hitpoints.shields}
+                            health={apiData.hitpoints.health}
+                            armor={apiData.hitpoints.armor}
+                            total={apiData.hitpoints.total} />
+                            
                             <p>Agente {apiData.name}</p>
                             <p>Especialidade: {apiData.role}</p>
                             <img src={apiData.portrait} alt="" />
