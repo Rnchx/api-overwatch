@@ -2,7 +2,7 @@
 import styles from './nameEachAgent.module.css';
 
 const Name = ({ key, name, role, portrait, shields, health, armor, total }) => {
-
+    
     return (
         <div key={key} className={styles.containerEachAgent}>
             <p>Agente {name}</p>

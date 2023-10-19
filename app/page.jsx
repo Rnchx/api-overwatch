@@ -33,10 +33,10 @@ export default function Home() {
                 <Link href={`eachAgent/${agent.key}`}>
                   <div>
                     <Agent
-                    key={agent.id}
-                    name={agent.name}
-                    portrait={agent.portrait}
-                    role={agent.role} />
+                      key={agent.id}
+                      name={agent.name}
+                      portrait={agent.portrait}
+                      role={agent.role} />
                   </div>
                 </Link>
 

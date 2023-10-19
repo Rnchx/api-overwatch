@@ -10,13 +10,13 @@ export default function Home({ params }) {
 
     useEffect(() => {
         const overwatchFletch = async () => {
-
             const datas = await agent(params.name);
             setApiData(datas);
         };
         overwatchFletch();
     }, [])
 
+    console.log("Esse", apiData)
     return (
         <div className={styles.divMain}>
             <h2>API - OverWatch</h2>

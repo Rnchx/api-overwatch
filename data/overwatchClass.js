@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const URL_API_Heroes = 'https://overfast-api.tekrop.fr/heroes?language=pt-BR';
-const URL_API_Roles = 'https://overfast-api.tekrop.fr/roles?language=pt-BR';
-const URL_API_GameModes = 'https://overfast-api.tekrop.fr/gamemodes?language=pt-BR';
+const URL_API_Heroes = 'https://overfast-api.tekrop.fr/heroes';
+const URL_API_Roles = 'https://overfast-api.tekrop.fr/roles';
+const URL_API_GameModes = 'https://overfast-api.tekrop.fr/gamemodes';
 
 const overwatch = async () => {
     try {
@@ -33,7 +33,8 @@ export const gamemodes = async () => {
 
 export const agent = async (nome) => {
     try {
-        const result = await axios.get(URL_API_Heroes + '/' + nome);
+        const result = await axios.get(URL_API_Heroes + '/' + nome + '?locale=pt-br');
+        console.log(result.data)
         return result.data;
     } catch (error) {
         throw error;
