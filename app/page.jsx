@@ -24,7 +24,6 @@ export default function Home() {
   return (
     <div className={styles.divBody}>
       <div className={styles.mainContainer}>
-        <h2 id={styles.title}>API - OverWatch</h2>
         <div className={styles.smallCard}>
           {
             apiDataO ? (

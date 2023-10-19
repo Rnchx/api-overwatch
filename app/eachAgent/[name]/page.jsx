@@ -19,11 +19,9 @@ export default function Home({ params }) {
     console.log("Esse", apiData)
     return (
         <div className={styles.divMain}>
-            <h2>API - OverWatch</h2>
             <div>
                 {
                     apiData ? (
-
                         <div>
                             <Name key={apiData.id}
                                 name={apiData.name}
@@ -33,14 +31,8 @@ export default function Home({ params }) {
                                 health={apiData.hitpoints.health}
                                 armor={apiData.hitpoints.armor}
                                 total={apiData.hitpoints.total}
+                                description={apiData.description}
                             />
-                            <div>
-                                <br />
-                                <br />
-                                <h2>Descrição</h2>
-
-                                <p>{apiData.description}</p>
-                            </div>
                         </div>
 
                     ) : (
