@@ -33,17 +33,6 @@ export default function Home({ params }) {
                             health={apiData.hitpoints.health}
                             armor={apiData.hitpoints.armor}
                             total={apiData.hitpoints.total} />
-                            
-                            <p>Agente {apiData.name}</p>
-                            <p>Especialidade: {apiData.role}</p>
-                            <img src={apiData.portrait} alt="" />
-                            <div>
-                                
-                                <p>Escudos: {apiData.hitpoints.shields}</p>
-                                <p>Vida: {apiData.hitpoints.health}</p>
-                                <p>Armadura: {apiData.hitpoints.armor}</p>
-                                <p>Total de vida: {apiData.hitpoints.total}</p>
-                            </div>
                             <div>
                                 <br />
                                 <br />  
