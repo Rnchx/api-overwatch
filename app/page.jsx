@@ -36,13 +36,13 @@ export default function Home() {
                     <Agent key={agent.id} name={agent.name} portrait={agent.portrait} role={agent.role} />
                   </div>
                 </Link>
-
               ))
-            ) : (
-              <p>Loading...</p>
-            )
-          }
+              ) : (
+                <p>Loading...</p>
+                )
+              }
         </div>
+      
       </div>
     </div>
   )
