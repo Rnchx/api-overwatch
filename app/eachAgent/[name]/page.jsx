@@ -25,15 +25,22 @@ export default function Home({ params }) {
                     apiData ? (
 
                         <div>
-                            <Name
-                            key={apiData.id}
-                            name={apiData.name}
-                            role={apiData.role}
-                            portrait={apiData.portrait}
-                            shields={apiData.hitpoints.shields}
-                            health={apiData.hitpoints.health}
-                            armor={apiData.hitpoints.armor}
-                            total={apiData.hitpoints.total} />
+                            <Name key={apiData.id}
+                                name={apiData.name}
+                                role={apiData.role}
+                                portrait={apiData.portrait}
+                                shields={apiData.hitpoints.shields}
+                                health={apiData.hitpoints.health}
+                                armor={apiData.hitpoints.armor}
+                                total={apiData.hitpoints.total}
+                            />
+                            <div>
+                                <br />
+                                <br />
+                                <h2>Descrição</h2>
+
+                                <p>{apiData.description}</p>
+                            </div>
                         </div>
 
                     ) : (
