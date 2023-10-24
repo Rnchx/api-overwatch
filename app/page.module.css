@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0.2rem;
 }
 
 .card1 {
@@ -16,17 +17,37 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 80%;
     background-color: #313037;
+    width: 80%;
+    border-radius: 5px;
 }
 
 .card2 {
     margin: 1.5rem;
     border: 1.8px solid #f99b14;
-    border-radius: 6%;
+    border-radius: 2px;
     padding: 0.8rem;
     text-align: center;
     background-color: whitesmoke;
     color: black;
+}
+
+.containerIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconsRoles {
+    height: 20px;
+    width: 20px;
+}
+
+.styleIcons {
+    margin-top: 0.3rem;
+    background-color: #313037;
+    padding: 0.8rem;
+    border-radius: 100%;
+    width: 20%;
 }
 
