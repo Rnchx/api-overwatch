@@ -25,26 +25,27 @@ export default function Home() {
     <div className={styles.divBody}>
       <div className={styles.mainContainer}>
         <div className={styles.smallCard}>
-          {
-            apiDataO ? (
-              apiDataO.map((agent) => (
-                <Link href={`eachAgent/${agent.key}`}>
-                  <div className={styles.card2}>
-                    <Agent
-                      key={agent.id}
-                      name={agent.name}
-                      portrait={agent.portrait}
-                      role={agent.role} />
-                  </div>
-                </Link>
-
-              ))
-            ) : (
-              <p>Loading...</p>
-            )
-          }
+          <div className={styles.card1}>
+            {
+              apiDataO ? (
+                apiDataO.map((agent) => (
+                  <Link href={`eachAgent/${agent.key}`}>
+                    <div className={styles.card2}>
+                      <Agent
+                        key={agent.id}
+                        name={agent.name}
+                        portrait={agent.portrait}
+                        role={agent.role} />
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <p>Carregando Api...</p>
+              )
+            }
           </div>
         </div>
       </div>
+    </div>
   )
 }
