@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <div className={styles.divBody}>
-      <div className={styles.mainContainer}>
         <div className={styles.smallCard}>
         <div className={styles.card1}>
           {
@@ -45,7 +44,6 @@ export default function Home() {
           }
           </div>
       </div>
-    </div>
     </div>
   )
 }
