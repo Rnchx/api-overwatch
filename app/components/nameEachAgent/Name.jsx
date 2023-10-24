@@ -1,4 +1,5 @@
 'use client'
+import { Poppins } from 'next/font/google';
 import styles from './nameEachAgent.module.css';
 
 const Name = ({ key, name, role, portrait, shields, health, armor, total, description }) => {
@@ -11,10 +12,10 @@ const Name = ({ key, name, role, portrait, shields, health, armor, total, descri
             <img src={portrait} alt={name} />
 
             <div className={styles.divHitpoints}>
-                <p className={styles.text}>Escudos: {shields}</p>
-                <p className={styles.text}>Vida: {health}</p>
-                <p className={styles.text}>Armadura: {armor}</p>
-                <p className={styles.text}>Total de vida: {total}</p>
+                <p className={styles.text}><strong>Escudos:</strong><br></br> {shields}</p>
+                <p className={styles.text}><strong>Vida:</strong><br></br> {health}</p>
+                <p className={styles.text}><strong>Armadura:</strong><br></br> {armor}</p>
+                <p className={styles.text}><strong>Total de vida:</strong><br></br> {total}</p>
             </div>
 
             <div className={styles.divDescription}>
