@@ -28,7 +28,6 @@ export default function Home() {
           {
             apiDataO ? (
               apiDataO.map((agent) => (
-
                 <Link href={`eachAgent/${agent.key}`}>
                   <div className={styles.card2}>
                     <Agent
@@ -44,8 +43,8 @@ export default function Home() {
               <p>Loading...</p>
             )
           }
+          </div>
         </div>
       </div>
-    </div>
   )
 }
