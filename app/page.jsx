@@ -25,10 +25,10 @@ export default function Home() {
     <div className={styles.divBody}>
       <div className={styles.mainContainer}>
         <div className={styles.smallCard}>
+        <div className={styles.card1}>
           {
             apiDataO ? (
               apiDataO.map((agent) => (
-
                 <Link href={`eachAgent/${agent.key}`}>
                   <div className={styles.card2}>
                     <Agent
@@ -38,14 +38,14 @@ export default function Home() {
                       role={agent.role} />
                   </div>
                 </Link>
-
-              ))
-            ) : (
-              <p>Loading...</p>
-            )
+        ))
+        ) : (
+        <p>Carregando Api...</p>
+        )
           }
-        </div>
+          </div>
       </div>
+    </div>
     </div>
   )
 }
