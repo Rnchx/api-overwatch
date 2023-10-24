@@ -1,3 +1,11 @@
 .containerEachAgent {
-    background-color: red;
+    min-height: 100vh;
+    background-color: #313037;
+    padding: 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.text, .title {
+    color: white;
 }

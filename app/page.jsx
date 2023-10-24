@@ -23,9 +23,8 @@ export default function Home() {
 
   return (
     <div className={styles.divBody}>
-      <div>
-        <h2 id={styles.title}>API - OverWatch</h2>
-        <div className={styles.card1}>
+      <div className={styles.mainContainer}>
+        <div className={styles.smallCard}>
           {
             apiDataO ? (
               apiDataO.map((agent) => (
