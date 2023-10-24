@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-#title {
-    text-align: center;
-}
-
 .smallCard {
     display: flex;
     justify-content: center;
@@ -21,13 +17,16 @@
     align-items: center;
     justify-content: center;
     width: 80%;
+    background-color: #313037;
 }
 
 .card2 {
     margin: 1.5rem;
-    border: 1.8px solid rgba(0, 115, 231, 0.689);
+    border: 1.8px solid #f99b14;
     border-radius: 6%;
     padding: 0.8rem;
     text-align: center;
+    background-color: whitesmoke;
+    color: black;
 }
 

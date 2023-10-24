@@ -34,7 +34,7 @@ export default function Home() {
                         key={agent.id}
                         name={agent.name}
                         portrait={agent.portrait}
-                        role={agent.role} />
+                        role={agent.role === 'support' ? <img src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg'/> : agent.role === 'tank' ? <img src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg'/> : <img src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' />} />
                     </div>
                   </Link>
                 ))
