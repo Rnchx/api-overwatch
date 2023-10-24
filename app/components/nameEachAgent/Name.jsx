@@ -6,7 +6,7 @@ const Name = ({ key, name, role, portrait, shields, health, armor, total, descri
     return (
         <div key={key} className={styles.containerEachAgent}>
             <div className={styles.containerCard}>
-            <p className={styles.text} id={styles.pName}>Agente {name}</p>
+            <p className={styles.text} id={styles.pName}>{name}</p>
             <p className={styles.text}>Especialidade: {role}</p>
             <img src={portrait} alt={name} />
 
