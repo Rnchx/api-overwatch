@@ -1,11 +1,3 @@
-/* .containerEachAgent {
-    min-height: 100vh;
-    background-color: #313037;
-    padding: 1rem;
-    margin-left: 10%;
-    margin-right: 10%;
-} */
-
 .text, .title {
     color: white;
 }
@@ -21,12 +13,10 @@
 .containerCard {
     background-color: #313037;
     text-align: center;
-    margin: 1.5rem;
     border: 1.8px solid #f99b14;
     border-radius: 8px;
     padding: 0.8rem;
-    width: 50vw;
-    height: 50vw;
+    margin: 2rem;
 }
 
 .divHitpoints {
@@ -34,7 +24,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin: 1rem;
+    padding: 1rem;
 }
 
 #pName {

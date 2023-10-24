@@ -20,7 +20,6 @@ export default function Home() {
   }, [])
 
 
-
   return (
     <div className={styles.divBody}>
       <div className={styles.smallCard}>
