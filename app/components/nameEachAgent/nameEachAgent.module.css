@@ -23,5 +23,13 @@
     border: 1.8px solid rgba(0, 115, 231, 0.689);
     border-radius: 8px;
     padding: 0.8rem;
-    width: 60vw;
+    width: 50vw;
+    height: 50vw;
+}
+
+.divHitpoints {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
