@@ -23,15 +23,15 @@ export default function Home() {
 
   return (
     <div className={styles.divBody}>
-      <div className={styles.mainContainer}>
+      <div>
         <h2 id={styles.title}>API - OverWatch</h2>
-        <div className={styles.smallCard}>
+        <div className={styles.card1}>
           {
             apiDataO ? (
               apiDataO.map((agent) => (
 
                 <Link href={`eachAgent/${agent.key}`}>
-                  <div>
+                  <div className={styles.card2}>
                     <Agent
                       key={agent.id}
                       name={agent.name}

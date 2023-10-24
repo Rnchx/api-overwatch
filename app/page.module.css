@@ -4,14 +4,22 @@
     box-sizing: border-box;
 }
 
-.mainContainer {
+#title {
+    text-align: center;
+}
+
+.card1 {
+    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
-#title {
-    text-align: center;
+.card2 {
+    margin: 1.5rem;
+    border: 1.8px solid rgba(0, 115, 231, 0.689);
+    border-radius: 6%;
+    padding: 0.8rem;
 }
 
