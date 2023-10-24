@@ -1,14 +1,16 @@
 'use client'
-import { Poppins } from 'next/font/google';
 import styles from './nameEachAgent.module.css';
 
 const Name = ({ key, name, icon, shields, health, armor, total, description, abilities }) => {
-    console.log('teste',abilities);
+    console.log('teste', abilities);
     return (
         <div key={key} className={styles.containerEachAgent}>
             <div className={styles.containerCard}>
-                <p className={styles.text} id={styles.pName}>{name}</p>
-                <p className={styles.text}>Especialidade: {icon}</p>
+                <div className={styles.containerIcon}>
+                <p className={styles.text} id={styles.pName}><i>{name}</i></p>
+                <p className={styles.text}>{icon}</p>
+                </div>
+
                 <div>
                     <video width="450" height="300" controls muted autoPlay loop>
                         <source src={abilities[0].video.link.mp4} type="video/mp4" />
@@ -26,7 +28,7 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
                     <p className={styles.text}><strong>{description}</strong></p>
                 </div>
 
-                
+
             </div>
         </div>
     )
