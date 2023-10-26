@@ -2,18 +2,26 @@
 import styles from './nameEachAgent.module.css';
 
 const Name = ({ key, name, icon, shields, health, armor, total, description, abilities, story }) => {
-    console.log(story);
     return (
         <div key={key} className={styles.containerEachAgent}>
             <div className={styles.containerCard}>
-                <div className={styles.containerIcon}>
-                    <p className={styles.text} id={styles.pName}><i>{name}</i></p>
-                    <p className={styles.text}>{icon}</p>
+                <div className={styles.containerIcon2}>
+                    <div className={styles.containerIcon}>
+                        <div className={styles.divIconRole}>
+                            <p className={styles.iconRole}>{icon}</p>
+                        </div>
+                        <div className={styles.divTextTitle}>
+                            <p className={styles.textTitle} id={styles.pName}><i>{name}</i></p>
+                        </div>
+                    </div>
                 </div>
 
-                <video width="450" height="300" controls muted autoPlay loop>
-                    <source src={abilities[0].video.link.mp4} type="video/mp4" />
-                </video>
+                <div className={styles.divVideo}>
+                    <video width="850" controls muted autoPlay loop>
+                        <source src={abilities[0].video.link.mp4} type="video/mp4" />
+                    </video>
+                </div>
+
 
                 <div className={styles.divHitpointsDescription}>
                     <div className={styles.divHitpoints}>
