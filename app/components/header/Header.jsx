@@ -5,10 +5,10 @@ const Header = () => {
     return (
         <div className={style.principal}>
               <div>
-                <img src='overwatchlogo.png' className={style.logo}/>
+                <img src='/overwatchlogo.png' className={style.logo}/>
             </div>
             <div >
-                <img src='over.png' className={style.imagem}></img>
+                <img src='/over.png' className={style.imagem}></img>
             </div>
         </div>
 

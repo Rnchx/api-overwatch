@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import styles from './name.module.css';
 import Name from '@/app/components/nameEachAgent/Name';
 import ImageLoading from '../../components/imageLoading/ImageLoading'
+import Header from '@/app/components/header/Header';
+import Footer from '@/app/components/footer/Footer';
 
 export default function Home({ params }) {
 
@@ -23,6 +25,7 @@ export default function Home({ params }) {
                 {
                     apiData ? (
                         <div>
+                            <Header />
                             <Name key={apiData.id}
                                 name={apiData.name}
                                 icon={apiData.role === 'support' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' /></div></div>
@@ -36,6 +39,7 @@ export default function Home({ params }) {
                                 abilities={apiData.abilities}
                                 story={apiData.story}
                             />
+                            <Footer />
                         </div>
 
                     ) : (
