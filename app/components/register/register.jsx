@@ -5,8 +5,9 @@ import { useState } from "react";
 
 const [listaAgente, setListaAgentes] = useState([])
 
-function Form(){
-    const [listAgente, setLista]= ([])
+function Form() {
+    const [listAgente, setLista] = ([])
+
     const [nome, setNome] = useState(null);
     const [descricao, setDescricao] = useState("");
     const [pontosDeVida, setPontosDeVida] = useState("");
@@ -20,16 +21,20 @@ function Form(){
 
 
 
-    const addAgente= () => {
+    const addAgente = () => {
         const novoAgente = new Agents1(nome, descricao, pontosDeVida, armadura, vida, escudos, especialidade, localizacao, habilidades);
-      
-        // Verifique se o agente já está na lista local
+
+
         if (!listaAgente.some(agente => agente.nome === nome)) {
-          // Se não estiver, adicione-o à lista local
-          const novosAgentes = [...ListAgente, novoAgente];
-          setListaAgentes(novosAgentes);
-        }
+            const novosAgentes = [...ListAgente, novoAgente];
+            setListaAgentes(novosAgentes);
+        } const newagent = [...listaAgente, novoAgente];
+        setListaAgentes(newagent);
     }
+    
+    addList.addAgente(novoAgente);
+
+
     return (
         <>
             <h2>Crie seu personagem abaixo!</h2>
@@ -44,47 +49,36 @@ function Form(){
                 type="text"
                 descricao="descricao"
                 value={Agents1.descricao}
-            />  
-             <label>Habilidades:</label>
+            />
+            <label>Habilidades:</label>
             <input
                 type="text"
                 habilidade="habilidade"
                 value={Agents1.habilidade}
             />
-          <h3>Informações de vida.</h3>
+            <h3>Informações de vida.</h3>
             <label>vida:</label>
             <input
                 type="text"
                 name="nome"
                 value={Agents1.nome}
             />
-             <label>Nascionalidade:</label>
+            <label>Nascionalidade:</label>
             <input
                 type="text"
                 localizacao="localizacao"
                 value={Agents1.localizacao}
             />
-             <label>Escudo:</label>
+            <label>Escudo:</label>
             <input
                 type="text"
-                escudo="escudo"     
+                escudo="escudo"
                 value={Agents1.escudo}
-            />  <button onClick= {addAgente}>Adicionar Agente!</button> 
-                  <button>Deletar Agente!</button>
+            />  <button onClick={addAgente}>Adicionar Agente!</button>
+            <button>Deletar Agente!</button>
 
-         <p>vida total: </p>
+            <p>vida total: </p>
 
-       
-        
-   
-    
-        
-
-
-       
-        
-
-         
         </>
 
     )
