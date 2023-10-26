@@ -3,6 +3,7 @@ import { agent } from '@/data/overwatchClass';
 import { useEffect, useState } from 'react';
 import styles from './name.module.css';
 import Name from '@/app/components/nameEachAgent/Name';
+import ImageLoading from '../../components/imageLoading/ImageLoading'
 
 export default function Home({ params }) {
 
@@ -38,7 +39,7 @@ export default function Home({ params }) {
                         </div>
 
                     ) : (
-                        <p>Loading...</p>
+                        <ImageLoading/>
                     )
                 }
             </div>
