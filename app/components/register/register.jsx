@@ -3,10 +3,10 @@ import Agents1 from "@/models/Agents";
 import ListAgente from "@/models/listAgente";
 import { useState } from "react";
 
-
-
+const [listaAgente, setListaAgentes] = useState([])
 
 function Form(){
+    const [listAgente, setLista]= ([])
     const [nome, setNome] = useState(null);
     const [descricao, setDescricao] = useState("");
     const [pontosDeVida, setPontosDeVida] = useState("");
@@ -18,7 +18,6 @@ function Form(){
     const [habilidades, setHabilidades] = useState("");
     const [] = useState("");
 
-    const [listaAgente, setListaAgentes] = useState([])
 
 
     const addAgente= () => {
