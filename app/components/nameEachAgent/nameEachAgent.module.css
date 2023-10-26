@@ -24,6 +24,13 @@
     margin-bottom: 0.5rem;
 }
 
+.titleStory {
+    color: #f99b14;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
 .containerEachAgent {
     background-color: #313037;
     display: flex;
@@ -136,6 +143,10 @@
 
 .divPic2 {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .divVideo {

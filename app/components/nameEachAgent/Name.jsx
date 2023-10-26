@@ -73,8 +73,7 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
                                         <div className={styles.divPic}>
                                             <div className={styles.divPic2}>
                                                 <img src={story.picture} width={350} />
-                                                <p className={styles.title}><i>{story.title}</i></p>
-
+                                                <p className={styles.titleStory}><i>{story.title}</i></p>
                                             </div>
                                         </div>
 
