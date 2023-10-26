@@ -3,36 +3,34 @@ import Agents1 from "@/models/Agents";
 import ListAgente from "@/models/listAgente";
 import { useState } from "react";
 
-const [listaAgente, setListaAgentes] = useState([])
+const instanciaLista = new ListAgente()
 
 function Form() {
-    const [listAgente, setLista] = ([])
+    const [listaAgente, setListaAgentes] = ([])
 
     const [nome, setNome] = useState(null);
     const [descricao, setDescricao] = useState("");
-    const [pontosDeVida, setPontosDeVida] = useState("");
     const [armadura, setArmadura] = useState("");
     const [vida, setVida] = useState("");
     const [escudos, setEscudo] = useState("");
     const [especialidade, setEspecialidade] = useState("");
     const [localizacao, setLocalizacao] = useState("");
     const [habilidades, setHabilidades] = useState("");
-    const [] = useState("");
+    const [btnEdit, setBtnEdit] = useState([]);
 
 
 
     const addAgente = () => {
-        const novoAgente = new Agents1(nome, descricao, pontosDeVida, armadura, vida, escudos, especialidade, localizacao, habilidades);
+        const novoAgente = new Agents1(nome, descricao, armadura, vida, escudos, especialidade, localizacao, habilidades);
 
 
         if (!listaAgente.some(agente => agente.nome === nome)) {
             const novosAgentes = [...ListAgente, novoAgente];
             setListaAgentes(novosAgentes);
-        } const newagent = [...listaAgente, novoAgente];
-        setListaAgentes(newagent);
+        }
+
+        instanciaLista.addAgente(novoAgente);
     }
-    
-    addList.addAgente(novoAgente);
 
 
     return (

@@ -7,11 +7,13 @@ import Link from 'next/link';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import ImageLoading from './components/imageLoading/ImageLoading';
+import Form from './components/register/register';
 
 export default function Home() {
 
   const [apiDataO, setApiDataO] = useState(null);
   const [apiDataA, setApiDataA] = useState(null);
+  
 
   useEffect(() => {
     const overwatchFletch = async () => {
@@ -48,6 +50,9 @@ export default function Home() {
               )}
             </div>
           </div>
+        </div>
+        <div id={formCreateAgent}>
+                <Form/>
         </div>
         <Footer />
       </div>
