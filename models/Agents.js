@@ -1,8 +1,7 @@
 class Agents1 {
-    constructor(nome, descricao, pontosDeVida, armadura, vida, escudos, especialidade, localizacao, habilidades) {
+    constructor(nome, descricao, armadura, vida, escudos, especialidade, localizacao, habilidades) {
         this.nome = nome;
         this.descricao = descricao;
-        this.pontosDeVida = pontosDeVida;
         this.armadura= armadura;
         this.vida = vida;
         this.escudos =escudos;
@@ -12,7 +11,7 @@ class Agents1 {
         this.id= generateId()
     }
     
-    generateId(){
+    generateId = () => {
         return Math.floor(Math.random() * 10000);
     }
 }

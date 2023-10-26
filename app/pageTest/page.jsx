@@ -5,7 +5,7 @@ function Home() {
         <>
             <p>home</p>
             <Form/>
-        </>
+        </> 
     )
 }
 export default Home;
