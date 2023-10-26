@@ -4,10 +4,14 @@ import style from '../header/header.module.css'
 const Header = () => {
     return (
         <div className={style.principal}>
-            <div className={style.imagem}>
-                <img src='over.png' width={50} height={50}/>
+              <div>
+                <img src='overwatchlogo.png' className={style.logo}/>
+            </div>
+            <div >
+                <img src='over.png' className={style.imagem}></img>
             </div>
         </div>
+
     )
 }
 
