@@ -1,4 +1,4 @@
-class Agents {
+class Agents1 {
     constructor(nome, descricao, pontosDeVida, armadura, vida, escudos, especialidade, localizacao, habilidades) {
         this.nome = nome;
         this.descricao = descricao;
@@ -16,4 +16,4 @@ class Agents {
         return Math.floor(Math.random() * 10000);
     }
 }
-export default Agents;
+export default Agents1;
