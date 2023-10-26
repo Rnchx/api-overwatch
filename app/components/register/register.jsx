@@ -1,6 +1,36 @@
+"use client"
 import Agents1 from "@/models/Agents";
+import ListAgente from "@/models/listAgente";
+import { useState } from "react";
 
-function Form() {
+
+
+
+function Form(){
+    const [nome, setNome] = useState(null);
+    const [descricao, setDescricao] = useState("");
+    const [pontosDeVida, setPontosDeVida] = useState("");
+    const [armadura, setArmadura] = useState("");
+    const [vida, setVida] = useState("");
+    const [escudos, setEscudo] = useState("");
+    const [especialidade, setEspecialidade] = useState("");
+    const [localizacao, setLocalizacao] = useState("");
+    const [habilidades, setHabilidades] = useState("");
+    const [] = useState("");
+
+    const [listaAgente, setListaAgentes] = useState([])
+
+
+    const addAgente= () => {
+        const novoAgente = new Agents1(nome, descricao, pontosDeVida, armadura, vida, escudos, especialidade, localizacao, habilidades);
+      
+        // Verifique se o agente já está na lista local
+        if (!listaAgente.some(agente => agente.nome === nome)) {
+          // Se não estiver, adicione-o à lista local
+          const novosAgentes = [...ListAgente, novoAgente];
+          setListaAgentes(novosAgentes);
+        }
+    }
     return (
         <>
             <h2>Crie seu personagem abaixo!</h2>
@@ -10,7 +40,6 @@ function Form() {
                 name="nome"
                 value={Agents1.nome}
             />
-
             <label>Descrição:</label>
             <input
                 type="text"
@@ -39,13 +68,22 @@ function Form() {
              <label>Escudo:</label>
             <input
                 type="text"
-                escudo="escudo"
+                escudo="escudo"     
                 value={Agents1.escudo}
-            />
+            />  <button onClick= {addAgente}>Adicionar Agente!</button> 
+                  <button>Deletar Agente!</button>
 
-         <p>vida total:
-            <p>calculando...</p>
-         </p>
+         <p>vida total: </p>
+
+       
+        
+   
+    
+        
+
+
+       
+        
 
          
         </>
