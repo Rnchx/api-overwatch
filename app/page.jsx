@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import Agent from './components/agent/Agent';
 import styles from './page.module.css';
 import Link from 'next/link';
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 export default function Home() {
 
@@ -22,6 +24,7 @@ export default function Home() {
 
   return (
     <div className={styles.divBody}>
+      <Header/>
       <div className={styles.smallCard}>
         <div className={styles.card1}>
           {
@@ -40,12 +43,15 @@ export default function Home() {
                 </Link>
               ))
             ) : (
-              <p>Carregando Api...</p>
+              <div id={styles.containerImgLoading}>
+                <img src="@/public/steamuserimages-a.akamaihd.gif" alt="Loading Image" />
+              </div>
             )
           }
         </div>
       
       </div>
+      <Footer/>
     </div>
   )
 }

@@ -17,7 +17,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #313037;
+    background-color: #202020;
     width: 80%;
     border-radius: 5px;
 }
@@ -50,4 +50,3 @@
     width: 20px;
     margin-top: 7px;
 }
-
