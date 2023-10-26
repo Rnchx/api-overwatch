@@ -1,5 +1,16 @@
-.text, .title {
+.text {
     color: white;
+}
+
+.textContent {
+    color: white;
+    text-align: justify;
+}
+
+.title {
+    color: #f99b14;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .containerEachAgent {
@@ -16,7 +27,7 @@
     border: 1.8px solid #f99b14;
     border-radius: 8px;
     padding: 0.8rem;
-    margin: 1.5rem;
+    margin: 5rem;
 }
 
 .divHitpointsDescription {
@@ -36,22 +47,79 @@
     margin: 0.2rem;
 }
 
-.containerIcon {
-    gap: 0.5rem;
-}
-
 .divDescription {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.divDescription2 {
-    width: 60%;
-}
-
 #pName {
     text-decoration: none;
     font-size: 2rem;
     margin-bottom: 0.5rem;
+}
+
+.divIcons {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.divGun {
+    margin: 0;
+    padding: 0;
+}
+
+.divGunDescription {
+    display: flex;
+    width: 60%;
+}
+
+/* .divGunDescription::after {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 1px;
+    border-radius: 3px;
+    background-color: #f99b14;
+    margin-top: 9.5rem;
+} */
+
+.divGunDescription2 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.divContentPic {
+    display: flex;
+}
+
+.divContent {
+    width: 50%;
+    background-color: #313037;
+    text-align: center;
+    border: 1.8px solid #f99b14;
+    border-radius: 8px;
+    padding: 0.8rem;
+    margin: 1.5rem;
+}
+
+.divPic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divPic2 {
+    width: 50%;
+}
+
+.icons {
+    padding: 2rem;
 }

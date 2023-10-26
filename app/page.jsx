@@ -29,7 +29,7 @@ export default function Home() {
       <div className={styles.smallCard}>
         <div className={styles.card1}>
           {
-            !apiDataO ? (
+            apiDataO ? (
               apiDataO.map((agent) => (
                 <Link href={`eachAgent/${agent.key}`}>
                   <div className={styles.card2}>

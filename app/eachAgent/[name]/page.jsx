@@ -16,7 +16,6 @@ export default function Home({ params }) {
         overwatchFletch();
     }, [])
 
-
     return (
         <div className={styles.divMain}>
             <div>
@@ -34,6 +33,7 @@ export default function Home({ params }) {
                                 total={apiData.hitpoints.total}
                                 description={apiData.description}
                                 abilities={apiData.abilities}
+                                story={apiData.story}
                             />
                         </div>
 

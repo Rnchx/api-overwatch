@@ -1,8 +1,8 @@
 'use client'
 import styles from './nameEachAgent.module.css';
 
-const Name = ({ key, name, icon, shields, health, armor, total, description, abilities }) => {
-    console.log('teste', abilities);
+const Name = ({ key, name, icon, shields, health, armor, total, description, abilities, story }) => {
+    console.log(story);
     return (
         <div key={key} className={styles.containerEachAgent}>
             <div className={styles.containerCard}>
@@ -12,8 +12,8 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
                 </div>
 
                 <video width="450" height="300" controls muted autoPlay loop>
-                        <source src={abilities[0].video.link.mp4} type="video/mp4" />
-                    </video>
+                    <source src={abilities[0].video.link.mp4} type="video/mp4" />
+                </video>
 
                 <div className={styles.divHitpointsDescription}>
                     <div className={styles.divHitpoints}>
@@ -23,12 +23,59 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
                         <p className={styles.text}><strong>Total de vida:</strong><br></br> {total}</p>
                     </div>
 
-                    <div className={styles.divDescription}>
-                        <div className={styles.divDescription2}>
-                            <p className={styles.text}><strong>{description}</strong></p>
+                    <div className={styles.divIcons}>
+                        {/* {
+                            abilities.map((abilities) => (
+                                <div key={abilities.name}>
+                                    <img className={styles.icons} src={abilities.icon} width={120} />
+                                </div>
+                            ))
+                        } */}
+                        <img className={styles.icons} src={abilities[1].icon} width={120} />
+                        <img className={styles.icons} src={abilities[2].icon} width={120} />
+                        <img className={styles.icons} src={abilities[3].icon} width={120} />
+                    </div>
+
+
+                    <div className={styles.divGunDescription2}>
+                        <div className={styles.divGunDescription}>
+                            <div className={styles.divGun}>
+                                <img className={styles.icons} src={abilities[0].icon} width={250} />
+                            </div>
+
+                            <div className={styles.divDescription}>
+                                <div className={styles.divDescription2}>
+                                    <p className={styles.text}><strong>{description}</strong></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
+
+
+                    <div className={styles.divStory}>
+                        <p className={styles.text}>{story.summary}</p>
+
+                        {
+                            story.chapters.map((story) => (
+                                <div key={story.title}>
+                                    <div className={styles.divContentPic}>
+                                        <div className={styles.divContent}>
+                                            <p className={styles.textContent}>{story.content}</p>
+                                        </div>
+                                        <div className={styles.divPic}>
+                                            <div className={styles.divPic2}>
+                                                <img src={story.picture} width={350} />
+                                                <p className={styles.title}><i>{story.title}</i></p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            ))
+
+                        }
+                    </div>
                 </div>
             </div>
         </div>
