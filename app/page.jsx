@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import Link from 'next/link';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
+import ImageLoading from './components/imageLoading/ImageLoading';
 
 export default function Home() {
 
@@ -28,7 +29,7 @@ export default function Home() {
       <div className={styles.smallCard}>
         <div className={styles.card1}>
           {
-            apiDataO ? (
+            !apiDataO ? (
               apiDataO.map((agent) => (
                 <Link href={`eachAgent/${agent.key}`}>
                   <div className={styles.card2}>
@@ -43,9 +44,9 @@ export default function Home() {
                 </Link>
               ))
             ) : (
-              <div id={styles.containerImgLoading}>
-                <img src="@/public/steamuserimages-a.akamaihd.gif" alt="Loading Image" />
-              </div>
+              <>
+              <ImageLoading/>
+              </>
             )
           }
         </div>
