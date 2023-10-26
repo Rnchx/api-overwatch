@@ -24,13 +24,14 @@ export default function Home() {
 
 
   return (
-    <div className={styles.divBody}>
-      <Header/>
-      <div className={styles.smallCard}>
-        <div className={styles.card1}>
-          {
-            apiDataO ? (
-              apiDataO.map((agent) => (
+    apiDataO ? (
+      <div className={styles.divBody}>
+
+        <Header />
+        <div className={styles.divBody}>
+          <div className={styles.smallCard}>
+            <div className={styles.card1}>
+              {apiDataO.map((agent) => (
                 <Link href={`eachAgent/${agent.key}`}>
                   <div className={styles.card2}>
                     <Agent
@@ -42,17 +43,18 @@ export default function Home() {
                           : <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' /></div></div>} />
                   </div>
                 </Link>
-              ))
-            ) : (
-              <>
-              <ImageLoading/>
-              </>
-            )
-          }
+
+              )
+              )}
+            </div>
+          </div>
         </div>
-      
+        <Footer />
       </div>
-      <Footer/>
-    </div>
+    ) : (
+      <>
+        <ImageLoading />
+      </>
+    )
   )
 }
