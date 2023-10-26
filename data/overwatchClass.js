@@ -6,7 +6,7 @@ const URL_API_GameModes = 'https://overfast-api.tekrop.fr/gamemodes';
 
 const overwatch = async () => {
     try {
-        const result = await axios.get(URL_API_Heroes);
+        const result = await axios.get(URL_API_Heroes + '?locale=pt-br');
         return result.data;
     } catch (error) {
         throw error;
@@ -15,7 +15,7 @@ const overwatch = async () => {
 
 export const roles = async () => {
     try {
-        const result = await axios.get(URL_API_Roles);
+        const result = await axios.get(URL_API_Roles + '?locale=pt-br');
         return result.data;
     } catch (error) {
         throw error;
@@ -24,7 +24,7 @@ export const roles = async () => {
 
 export const gamemodes = async () => {
     try {
-        const result = await axios.get(URL_API_GameModes);
+        const result = await axios.get(URL_API_GameModes + '?locale=pt-br');
         return result.data;
     } catch (error) {
         throw error;
@@ -33,7 +33,8 @@ export const gamemodes = async () => {
 
 export const agent = async (nome) => {
     try {
-        const result = await axios.get(URL_API_Heroes + '/' + nome);
+        const result = await axios.get(URL_API_Heroes + '/' + nome + '?locale=pt-br');
+        console.log(result.data)
         return result.data;
     } catch (error) {
         throw error;

@@ -1,0 +1,42 @@
+.text, .title {
+    color: white;
+}
+
+.containerEachAgent {
+    background-color: #313037;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerCard {
+    background-color: #313037;
+    text-align: center;
+    border: 1.8px solid #f99b14;
+    border-radius: 8px;
+    padding: 0.8rem;
+    margin: 1.5rem;
+}
+
+.divHitpoints {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0.5rem;
+}
+
+.containerIcon {
+    gap: 0.5rem;
+}
+
+.divDescription {
+    margin: 2rem;
+}
+
+#pName {
+    text-decoration: none;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}

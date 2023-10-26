@@ -1,5 +1,53 @@
-.divMain {
+.divBody {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
+
+.smallCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2rem;
+}
+
+.card1 {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #313037;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.card2 {
+    margin: 1.5rem;
+    border: 1.8px solid #f99b14;
+    border-radius: 2px;
+    padding: 0.8rem;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.containerIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.styleIcons {
+    background-color: #313037;
+    border-radius: 100px;
+    padding: 0.5rem;
+    width: 50px;
+    height: 50px;
+}
+
+.iconsRoles {
+    width: 20px;
+    margin-top: 7px;
+}
+
