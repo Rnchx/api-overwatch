@@ -26,26 +26,32 @@
 
 .titleStory {
     color: #f99b14;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
-.containerEachAgent {
-    background-color: #313037;
+.containerEachAgent2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url('/background-mapa.jpg');
+}
+
+.containerEachAgent {
+    margin: 2rem;
+    width: 90%;
+    border-radius: 5px;
+    background-color: #20202095;
 }
 
 .containerCard {
-    background-color: #313037;
+    background-color: #20202095;
     text-align: center;
     border: 1.8px solid #f99b14;
-    border-radius: 8px;
     padding: 0.8rem;
-    margin: 5rem;
+    margin: 2.5rem;
     gap: 2rem;
 }
 
@@ -97,7 +103,6 @@
 
 .divGunDescription {
     display: flex;
-    width: 60%;
 }
 
 /* .divGunDescription::after {
@@ -115,6 +120,12 @@
 } */
 
 .divGunDescription2 {
+    width: 70%;
+    background-color: #313037;
+    text-align: center;
+    border: 1.8px solid #f99b14;
+    padding: 0.8rem;
+    margin: 1.5rem;
     display: flex;
     text-align: center;
     align-items: center;
@@ -123,19 +134,26 @@
 
 .divContentPic {
     display: flex;
+    align-items: center;
 }
 
 .divContent {
     width: 50%;
-    background-color: #313037;
+    background-color: #20202095;
     text-align: center;
     border: 1.8px solid #f99b14;
-    border-radius: 8px;
     padding: 0.8rem;
     margin: 1.5rem;
 }
 
 .divPic {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50vh;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
