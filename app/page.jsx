@@ -51,9 +51,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div id={styles.formCreateAgent}>
+        {/* <div id={styles.formCreateAgent}>
                 <Form/>
-        </div>
+        </div> */}
         <Footer />
       </div>
     ) : (

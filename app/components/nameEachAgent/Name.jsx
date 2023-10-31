@@ -3,7 +3,9 @@ import styles from './nameEachAgent.module.css';
 
 const Name = ({ key, name, icon, shields, health, armor, total, description, abilities, story }) => {
     return (
-        <div key={key} className={styles.containerEachAgent}>
+        <div key={key} className={styles.containerEachAgent2}>
+            <div className={styles.containerEachAgent}>
+
             <div className={styles.containerCard}>
                 <div className={styles.containerIcon2}>
                     <div className={styles.containerIcon}>
@@ -32,13 +34,6 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
                     </div>
 
                     <div className={styles.divIcons}>
-                        {/* {
-                            abilities.map((abilities) => (
-                                <div key={abilities.name}>
-                                    <img className={styles.icons} src={abilities.icon} width={120} />
-                                </div>
-                            ))
-                        } */}
                         <img className={styles.icons} src={abilities[1].icon} width={120} />
                         <img className={styles.icons} src={abilities[2].icon} width={120} />
                         <img className={styles.icons} src={abilities[3].icon} width={120} />
@@ -62,7 +57,6 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
 
                     <div className={styles.divStory}>
                         <p className={styles.text}>{story.summary}</p>
-
                         {
                             story.chapters.map((story) => (
                                 <div key={story.title}>
@@ -72,19 +66,20 @@ const Name = ({ key, name, icon, shields, health, armor, total, description, abi
                                         </div>
                                         <div className={styles.divPic}>
                                             <div className={styles.divPic2}>
+                                                    <p className={styles.titleStory}><i>{story.title}</i></p>
                                                 <img src={story.picture} width={350} />
-                                                <p className={styles.titleStory}><i>{story.title}</i></p>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             ))
-
                         }
                     </div>
                 </div>
             </div>
+            </div>
+
         </div>
     )
 }
