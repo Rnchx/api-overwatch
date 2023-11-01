@@ -51,3 +51,85 @@
     width: 20px;
     margin-top: 7px;
 }
+
+.btns {
+    border-radius: 3px;
+    border: none;
+    padding: 0.2rem;
+    margin: 0.4rem;
+    background-color: #313037;
+    color: white;
+    font-weight: 600;
+    border: 1px  solid #202020;
+    transition: 0.5s;
+}
+
+.btns:hover {
+    border-radius: 3px;
+    border: none;
+    padding: 0.2rem;
+    margin: 0.4rem;
+    background-color: #313037;
+    color: #f99914;
+    cursor: grab;
+    font-weight: 600;
+    transition: 0.5s;
+    border: 1px  solid #f99914;
+}
+
+.btnRE {
+    border-radius: 3px;
+    border: none;
+    padding: 0.7rem;
+    margin: 0.4rem;
+    background-color: #313037;
+    color: white;
+    font-weight: 100;
+    transition: 0.7s;
+}
+
+.btnRE:hover {
+    border-radius: 3px;
+    border: none;
+    padding: 0.5rem;
+    margin: 0.4rem;
+    background-color: #313037;
+    color: #f99914;
+    cursor: pointer;
+    font-weight: 100;
+    transition: 0.7s;
+}
+
+#formCreateAgent1 {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#formCreateAgent2 {
+    background-color: #202020;
+    width: 40%;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.inputs {
+    margin: 0.3rem;
+    outline: none;
+    color: white;
+    background-color: #313037;
+    border: 1px white solid;
+    padding: 0.1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 3px;
+}
+
+.titlesForm {
+    color: white;
+    background-color: #f99914;
+    margin-bottom: 0.3rem;
+    border-radius: 2px;
+}

@@ -1,0 +1,30 @@
+.mainDiv {
+    position: fixed;
+    left: 50%;
+    bottom: 1;
+    transform: translate(-50%, -50%);
+    padding: 16px;
+    -webkit-box-shadow: 9px 6px 27px -4px rgba(0, 0, 2, 1);
+    -moz-box-shadow: 9px 6px 27px -4px rgba(0, 0, 2, 1);
+    box-shadow: 9px 6px 27px -4px rgba(0, 0, 2, 1);
+    text-align: center;
+    width: 20%;
+    border-radius: 10px;
+    height: 55px;
+}
+
+.error{
+    background-color: #202020de;
+    color: #f99914;
+    font-weight: 700;
+}
+
+.success{
+    background-color: rgb(26, 213, 45);
+    color: black !important;
+}
+
+#message {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}

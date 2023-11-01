@@ -11,8 +11,7 @@ class Agent {
     }
 
     console(){
-        console.log(`Nome Dentro de Agente: ${this.nome}`)
-        console.log(`Descrição: ${this.descricao}`)    
+        
     }
 }
 export default Agent;
