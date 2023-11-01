@@ -88,19 +88,19 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await overwatch();
-        console.log('data dentro do useefe', data)
+        console.log('data dentro do useefe', data); // Verifique se os dados estão sendo impressos corretamente aqui
         if (!ignore) {
           setApiData(data);
         }
       } catch (error) {
-
+        // Lida com erros ao fazer a chamada da API
       }
     };
     fetchData();
-
+  
     return () => {
-      ignore = true
-    }
+      ignore = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -113,6 +113,7 @@ export default function Home() {
           agenteData.portrait,
           agenteData.description,
           agenteData.role,
+          console.log(agenteData)
         );
         instanciaListaAgentes.addAgente(novoAgente);
       });
