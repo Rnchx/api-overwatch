@@ -88,12 +88,12 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await overwatch();
-        console.log('data dentro do useefe', data); // Verifique se os dados estão sendo impressos corretamente aqui
+        console.log('data dentro do useefe', data); 
         if (!ignore) {
           setApiData(data);
         }
       } catch (error) {
-        // Lida com erros ao fazer a chamada da API
+        
       }
     };
     fetchData();
@@ -239,8 +239,8 @@ export default function Home() {
                   key={agent.id}
                   name={agent.name}
                   portrait={agent.portrait}
-                  role={agent.role === 'support' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' /></div></div>
-                    : agent.role === 'tank' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' /></div></div>
+                  role={agent.role == 'support' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' /></div></div>
+                    : agent.role == 'tank' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' /></div></div>
                       : <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' /></div></div>} />
                 <button className={styles.btnRE} onClick={() => removeAgent(agent)}><BsTrash3Fill /></button>
                 <button className={styles.btnRE} onClick={() => editAgent()}><FaPencilAlt /></button>
