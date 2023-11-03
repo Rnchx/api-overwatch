@@ -3,7 +3,6 @@ class ListAgente {
         this.listAgents = []
     }
     addAgente(agent) {
-        console.log("Criação");
         console.log(agent);
         this.listAgents.push(agent)
         console.log("Na class", this.listAgents)

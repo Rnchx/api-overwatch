@@ -22,23 +22,23 @@ export default function Home() {
   const [apiData, setApiData] = useState(null);
 
   const [listaAgentes, setListaAgentes] = useState([]);
+  console.log(listaAgentes);
 
   const [nome, setNome] = useState(null);
   const [portraitAgent, setPortraitAgent] = useState("")
-  const [descricao, setDescricao] = useState("");
-  const [armadura, setArmadura] = useState("");
-  const [vida, setVida] = useState("");
-  const [escudo, setEscudo] = useState("");
-  const [especialidade, setEspecialidade] = useState("");
-  const [habilidade1, setHabilidade1] = useState("");
-  const [habilidade2, setHabilidade2] = useState("");
-  const [habilidade3, setHabilidade3] = useState("");
+  //const [descricao, setDescricao] = useState("");
+  //const [armadura, setArmadura] = useState("");
+  //const [vida, setVida] = useState("");
+ //const [escudo, setEscudo] = useState("");
+  const [role, setrole] = useState("");
+  //const [habilidade1, setHabilidade1] = useState("");
+  //const [habilidade2, setHabilidade2] = useState("");
+  //const [habilidade3, setHabilidade3] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [popupIcon1, setPopupIcon1] = useState(null);
   const [popupIcon2, setPopupIcon2] = useState(null);
   const [popupMessage, setPopupMessage] = useState('');
   const [popupType, setPopupType] = useState('');
-  const [btnEdit, setBtnEdit] = useState([]);
 
   const handleShowPopup = (icon1, message, icon2, type, time) => {
     setPopupMessage(message)
@@ -52,29 +52,31 @@ export default function Home() {
   }
 
   const addAgent = () => {
-    if (nome == "" | portraitAgent == "" | especialidade == "" | descricao == "") {
-      handleShowPopup(<AiFillWarning />, 'Preencha todos os campos', <AiFillWarning />, 'error', 3000)
+    if (!nome || !portraitAgent || !role) {
+      handleShowPopup(<AiFillWarning />, 'Preencha todos os campos', <AiFillWarning />, 'error', 3000);
     } else {
       handleShowPopup(null, 'Agente cadastrado', <BsUiChecks />, 'sucess', 3000)
-      const novoAgente = new AgentModel(nome, portraitAgent, descricao);
+      const novoAgente = new AgentModel(nome, portraitAgent, role);
 
       if (!listaAgentes.some(agente => agente.nome === nome)) {
         const novosAgentes = [...listaAgentes, novoAgente];
+        console.log(listaAgentes);
         setListaAgentes(novosAgentes);
+        console.log(listaAgentes);
       }
 
       instanciaListaAgentes.addAgente(novoAgente);
 
       setNome("");
+      setrole("");
       setPortraitAgent("");
-      setDescricao("");
-      setArmadura("");
-      setVida("");
-      setEscudo("");
-      setEspecialidade("");
-      setHabilidade1("");
-      setHabilidade2("");
-      setHabilidade3("");
+      //setDescricao("");
+      //setArmadura("");
+      //setVida("");
+      //setEscudo("");
+      //setHabilidade1("");
+      //setHabilidade2("");
+      //setHabilidade3("");
     }
   };
 
@@ -88,16 +90,15 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const data = await overwatch();
-        console.log('data dentro do useefe', data); 
         if (!ignore) {
           setApiData(data);
         }
       } catch (error) {
-        
+
       }
     };
     fetchData();
-  
+
     return () => {
       ignore = true;
     };
@@ -106,24 +107,22 @@ export default function Home() {
   useEffect(() => {
     if (apiData) {
       apiData.forEach((agenteData) => {
-        console.log('apiDataDoUseUfeect', apiData)
 
         const novoAgente = new AgentModel(
           agenteData.name,
           agenteData.portrait,
           agenteData.description,
           agenteData.role,
-          console.log(agenteData)
         );
         instanciaListaAgentes.addAgente(novoAgente);
       });
 
       const atualizarAgentes = [...listaAgentes, ...instanciaListaAgentes.getList()];
       setListaAgentes(atualizarAgentes);
+      console.log(listaAgentes);
     }
   }, [apiData]);
 
-  console.log('listaAgentesRe', listaAgentes)
   return (
     apiData ? (
       <div className={styles.divBody}>
@@ -139,10 +138,15 @@ export default function Home() {
               onChange={(e) => setNome(e.target.value)}
             />
 
-            <select className={styles.inputs}>
-              <option value={agent.especialidade}>suporte</option>
-              <option value={agent.especialidade}>dano</option>
-              <option value={agent.especialidade}>tanque</option>
+            <select className={styles.inputs}
+              type="text"
+              placeholder="role do agente"
+              onChange={(e) => setrole(e.target.value)}
+              value={role}>
+              <option></option>
+              <option>damage</option>
+              <option>support</option>
+              <option>tank</option>
             </select>
 
             <input
@@ -153,13 +157,13 @@ export default function Home() {
               onChange={(e) => setPortraitAgent(e.target.value)}
             />
 
-            <input
+            {/*<input
               className={styles.inputs}
               type="text"
               placeholder="descrição do Agente"
               value={descricao}
               onChange={(e) => setDescricao(e.target.value)}
-            />
+    />
 
             <h3 className={styles.titlesForm}>Habilidades</h3>
 
@@ -211,7 +215,7 @@ export default function Home() {
               placeholder="quantidade de escudo"
               value={escudo}
               onChange={(e) => setEscudo(e.target.value)}
-            />
+            />*/}
             <div id={styles.divBtn}>
               <button className={styles.btns} onClick={addAgent}>Adicionar Agente</button>
             </div>
@@ -234,20 +238,44 @@ export default function Home() {
         <div className={styles.smallCard}>
           <div className={styles.card1}>
             {listaAgentes.map((agent) => (
-              <div className={styles.card2}>
-                <Agent
-                  key={agent.id}
-                  name={agent.name}
-                  portrait={agent.portrait}
-                  role={agent.role == 'support' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' /></div></div>
-                    : agent.role == 'tank' ? <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' /></div></div>
-                      : <div className={styles.containerIcon}><div className={styles.styleIcons}><img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' /></div></div>} />
-                <button className={styles.btnRE} onClick={() => removeAgent(agent)}><BsTrash3Fill /></button>
-                <button className={styles.btnRE} onClick={() => editAgent()}><FaPencilAlt /></button>
+    <div className={styles.card2}>
+      <Agent
+        key={agent.id}
+        name={agent.name}
+        portrait={agent.portrait}
+        role={
+          agent.role === 'support' ? (
+            <div className={styles.containerIcon}>
+              <div className={styles.styleIcons}>
+                <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' />
               </div>
-
-            )
-            )}
+            </div>
+          ) : agent.role === 'tank' ? (
+            <div className={styles.containerIcon}>
+              <div className={styles.styleIcons}>
+                <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' />
+              </div>
+            </div>
+          ) : agent.role === 'damage' ? (
+            <div className={styles.containerIcon}>
+              <div className={styles.styleIcons}>
+                <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' />
+              </div>
+            </div>
+          ) : (
+            <div className={styles.containerIcon}>
+              <div className={styles.styleIcons}>
+                Role desconhecido
+              </div>
+            </div>
+          )
+        }
+      />
+      <button className={styles.btnRE} onClick={() => removeAgent(agent)}><BsTrash3Fill /></button>
+      <button className={styles.btnRE}><FaPencilAlt /></button>
+    </div>
+  ))}
+            {console.log(listaAgentes)}
           </div>
         </div>
         <Footer />
