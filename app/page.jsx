@@ -39,6 +39,8 @@ export default function Home() {
   const [popupIcon2, setPopupIcon2] = useState(null);
   const [popupMessage, setPopupMessage] = useState('');
   const [popupType, setPopupType] = useState('');
+  const [flag, setFlag] = useState(0);
+  const [editButton, setEditButton] = useState(false);
 
   const handleShowPopup = (icon1, message, icon2, type, time) => {
     setPopupMessage(message)
@@ -83,6 +85,24 @@ export default function Home() {
   const removeAgent = (agente) => {
     instanciaListaAgentes.removeAgente(agente)
     setListaAgentes(instanciaListaAgentes.getList())
+  }
+
+  const edit = (id) => {
+    const agent = instanciaListaAgentes.getAgentPoId(id);
+
+    setNome(agent.nome);
+    setrole(agent.role);
+    setPortraitAgent(agent.portraitAgent);
+
+    setEditButton(true);
+    setFlag(id);
+  }
+
+  const update = () => {
+    instanciaListaAgentes.updateAgent(flag, nome, role, portraitAgent);
+
+    setEditButton(false);
+    setFlag(0);
   }
 
   useEffect(() => {
@@ -272,7 +292,7 @@ export default function Home() {
         }
       />
       <button className={styles.btnRE} onClick={() => removeAgent(agent)}><BsTrash3Fill /></button>
-      <button className={styles.btnRE}><FaPencilAlt /></button>
+      <button className={styles.btnRE} onClick={edit}><FaPencilAlt /></button>
     </div>
   ))}
             {console.log(listaAgentes)}
