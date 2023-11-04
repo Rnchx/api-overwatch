@@ -15,6 +15,7 @@ import { FaPencilAlt } from 'react-icons/fa';
 import { AiFillWarning } from 'react-icons/ai'
 import { BsUiChecks } from 'react-icons/bs'
 import Popup from './components/popUp/PopUp';
+import CompButton from './components/compBtns/CompBtns';
 
 const instanciaListaAgentes = new ListAgente()
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
   //const [descricao, setDescricao] = useState("");
   //const [armadura, setArmadura] = useState("");
   //const [vida, setVida] = useState("");
- //const [escudo, setEscudo] = useState("");
+  //const [escudo, setEscudo] = useState("");
   const [role, setrole] = useState("");
   //const [habilidade1, setHabilidade1] = useState("");
   //const [habilidade2, setHabilidade2] = useState("");
@@ -129,9 +130,8 @@ export default function Home() {
       apiData.forEach((agenteData) => {
 
         const novoAgente = new AgentModel(
-          agenteData.name,
+          agenteData.nome,
           agenteData.portrait,
-          agenteData.description,
           agenteData.role,
         );
         instanciaListaAgentes.addAgente(novoAgente);
@@ -237,7 +237,12 @@ export default function Home() {
               onChange={(e) => setEscudo(e.target.value)}
             />*/}
             <div id={styles.divBtn}>
-              <button className={styles.btns} onClick={addAgent}>Adicionar Agente</button>
+              { editButton ? (
+                <CompButton text={"Editar"} fn={update} />
+               ) : (
+                <button className={styles.btns} onClick={addAgent}>Adicionar Agente</button>
+              )
+            }
             </div>
           </div>
           <div id={styles.warnings} className={styles.hidden}>
@@ -258,43 +263,43 @@ export default function Home() {
         <div className={styles.smallCard}>
           <div className={styles.card1}>
             {listaAgentes.map((agent) => (
-    <div className={styles.card2}>
-      <Agent
-        key={agent.id}
-        name={agent.name}
-        portrait={agent.portrait}
-        role={
-          agent.role === 'support' ? (
-            <div className={styles.containerIcon}>
-              <div className={styles.styleIcons}>
-                <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' />
+              <div className={styles.card2}>
+                <Agent
+                  key={agent.id}
+                  name={agent.name}
+                  portrait={agent.portrait}
+                  role={
+                    agent.role === 'support' ? (
+                      <div className={styles.containerIcon}>
+                        <div className={styles.styleIcons}>
+                          <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' />
+                        </div>
+                      </div>
+                    ) : agent.role === 'tank' ? (
+                      <div className={styles.containerIcon}>
+                        <div className={styles.styleIcons}>
+                          <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' />
+                        </div>
+                      </div>
+                    ) : agent.role === 'damage' ? (
+                      <div className={styles.containerIcon}>
+                        <div className={styles.styleIcons}>
+                          <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className={styles.containerIcon}>
+                        <div className={styles.styleIcons}>
+                          Role desconhecido
+                        </div>
+                      </div>
+                    )
+                  }
+                />
+                <CompButton text={<BsTrash3Fill />} fn={() => removeAgent(agent)} />
+                <CompButton text={<FaPencilAlt />} fn={edit} />
               </div>
-            </div>
-          ) : agent.role === 'tank' ? (
-            <div className={styles.containerIcon}>
-              <div className={styles.styleIcons}>
-                <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' />
-              </div>
-            </div>
-          ) : agent.role === 'damage' ? (
-            <div className={styles.containerIcon}>
-              <div className={styles.styleIcons}>
-                <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' />
-              </div>
-            </div>
-          ) : (
-            <div className={styles.containerIcon}>
-              <div className={styles.styleIcons}>
-                Role desconhecido
-              </div>
-            </div>
-          )
-        }
-      />
-      <button className={styles.btnRE} onClick={() => removeAgent(agent)}><BsTrash3Fill /></button>
-      <button className={styles.btnRE} onClick={edit}><FaPencilAlt /></button>
-    </div>
-  ))}
+            ))}
             {console.log(listaAgentes)}
           </div>
         </div>

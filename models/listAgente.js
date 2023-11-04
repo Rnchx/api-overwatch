@@ -1,4 +1,4 @@
-import { agent } from "@/data/overwatchClass";
+'use client'
 
 class ListAgente {
     constructor() {
@@ -30,7 +30,7 @@ class ListAgente {
         const agent = this.getAgentPoId(id);
 
         if(agent) {
-            agent.nome = nome;
+            agent.nome = name;
             agent.role = role;
             agent.portrait = portrait;
         }
