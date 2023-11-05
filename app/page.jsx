@@ -79,8 +79,11 @@ export default function Home() {
     }, time)
   }
 
-  const topButton = () => {
-
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 
   const addAgent = () => {
@@ -363,7 +366,7 @@ export default function Home() {
           </div>
         </div>
         <div id={styles.containerBtnTop}>
-          <button className={styles.btnTop} onClick={topButton}><GoMoveToTop /></button>
+          <button className={styles.btnTop} onClick={scrollToTop}><GoMoveToTop /></button>
         </div>
         <Footer />
       </div>
