@@ -20,22 +20,22 @@ class ListAgente {
         this.listAgents = this.listAgents.filter(item => item.id !== agente.id)
     }
 
-    getAgentPoId(id) {
+    getAgentPorId(id) {
+        console.log('id', id);
         const agent = this.listAgents.find((agent) => agent.id == id);
+        console.log('editar Class', agent);
 
         return agent;
     }
 
     updateAgent(id, name, role, portrait) {
-        const agent = this.getAgentPoId(id);
+        const agent = this.getAgentPorId(id);
 
         if(agent) {
-            agent.nome = name;
+            agent.name = name;
             agent.role = role;
             agent.portrait = portrait;
         }
-
-        this.updateAgent();
 
         return agent;
     }

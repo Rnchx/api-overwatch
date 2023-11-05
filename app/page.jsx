@@ -14,10 +14,26 @@ import { BsTrash3Fill } from 'react-icons/bs';
 import { FaPencilAlt } from 'react-icons/fa';
 import { AiFillWarning } from 'react-icons/ai'
 import { BsUiChecks } from 'react-icons/bs'
+import { BsFillBookmarkCheckFill } from 'react-icons/bs'
+import { BiSolidErrorAlt } from 'react-icons/bi'
+import { BsFillPersonPlusFill } from 'react-icons/bs'
+import { BsFillPersonDashFill } from 'react-icons/bs'
+import { GoMoveToTop } from 'react-icons/go'
 import Popup from './components/popUp/PopUp';
 import CompButton from './components/compBtns/CompBtns';
 
 const instanciaListaAgentes = new ListAgente()
+
+const useImageValidator = (url) => {
+  const [isValid, setIsValid] = useState(false);
+
+  useEffect(() => {
+    setIsValid(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+  }, [url]);
+
+  return isValid;
+}
+
 export default function Home() {
 
   const [apiData, setApiData] = useState(null);
@@ -25,8 +41,9 @@ export default function Home() {
   const [listaAgentes, setListaAgentes] = useState([]);
   console.log(listaAgentes);
 
-  const [nome, setNome] = useState(null);
-  const [portraitAgent, setPortraitAgent] = useState("")
+  const [name, setname] = useState(null);
+  const [portraitAgent, setPortraitAgent] = useState("");
+  const isValid = useImageValidator(portraitAgent);
   //const [descricao, setDescricao] = useState("");
   //const [armadura, setArmadura] = useState("");
   //const [vida, setVida] = useState("");
@@ -42,6 +59,14 @@ export default function Home() {
   const [popupType, setPopupType] = useState('');
   const [flag, setFlag] = useState(0);
   const [editButton, setEditButton] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState('https://bnetcmsus-a.akamaihd.net/cms/gallery/W94XAGJVK4871649353625265.jpg');
+  const images = [
+    'https://bnetcmsus-a.akamaihd.net/cms/gallery/W94XAGJVK4871649353625265.jpg',
+    'https://bnetcmsus-a.akamaihd.net/cms/gallery/1BJ1QA72FCN61649353624113.jpg',
+    'https://images6.alphacoders.com/553/553471.jpg',
+    'https://www.pockettactics.com/wp-content/sites/pockettactics/2022/10/overwatch-2-maps-2.jpg',
+    'https://assets-prd.ignimgs.com/2022/09/27/esperanca-portugal-003-1080-1664272798292.jpg'
+  ];
 
   const handleShowPopup = (icon1, message, icon2, type, time) => {
     setPopupMessage(message)
@@ -54,34 +79,49 @@ export default function Home() {
     }, time)
   }
 
+  const topButton = () => {
+
+  }
+
   const addAgent = () => {
-    if (!nome || !portraitAgent || !role) {
-      handleShowPopup(<AiFillWarning />, 'Preencha todos os campos', <AiFillWarning />, 'error', 3000);
+    if (!name || !portraitAgent || !role) {
+      handleShowPopup(<AiFillWarning />, 'Preencha todos os campos', <AiFillWarning />, 'error', 2000);
     } else {
-      handleShowPopup(null, 'Agente cadastrado', <BsUiChecks />, 'sucess', 3000)
-      const novoAgente = new AgentModel(nome, portraitAgent, role);
 
-      if (!listaAgentes.some(agente => agente.nome === nome)) {
-        const novosAgentes = [...listaAgentes, novoAgente];
-        console.log(listaAgentes);
-        setListaAgentes(novosAgentes);
-        console.log(listaAgentes);
+      if (!isValid) {
+        handleShowPopup(<BiSolidErrorAlt />, 'Imagem não encontrada', <BiSolidErrorAlt />, 'error', 2000);
+      } else {
+        handleShowPopup(null, 'Agente cadastrado', <BsUiChecks />, 'sucess', 3000)
+        const novoAgente = new AgentModel(name, portraitAgent, role);
+
+        if (!listaAgentes.some(agente => agente.name === name)) {
+          const novosAgentes = [...listaAgentes, novoAgente];
+          console.log(listaAgentes);
+          setListaAgentes(novosAgentes);
+          console.log(listaAgentes);
+        }
+
+        instanciaListaAgentes.addAgente(novoAgente);
+
+        setname("");
+        setrole("");
+        setPortraitAgent("");
+        //setDescricao("");
+        //setArmadura("");
+        //setVida("");
+        //setEscudo("");
+        //setHabilidade1("");
+        //setHabilidade2("");
+        //setHabilidade3("");
       }
-
-      instanciaListaAgentes.addAgente(novoAgente);
-
-      setNome("");
-      setrole("");
-      setPortraitAgent("");
-      //setDescricao("");
-      //setArmadura("");
-      //setVida("");
-      //setEscudo("");
-      //setHabilidade1("");
-      //setHabilidade2("");
-      //setHabilidade3("");
     }
   };
+
+  const clearInputs = () => {
+    setname("");
+    setrole("");
+    setPortraitAgent("");
+  }
 
   const removeAgent = (agente) => {
     instanciaListaAgentes.removeAgente(agente)
@@ -89,21 +129,29 @@ export default function Home() {
   }
 
   const edit = (id) => {
-    const agent = instanciaListaAgentes.getAgentPoId(id);
-
-    setNome(agent.nome);
+    console.log('edit', id);
+    const agent = instanciaListaAgentes.getAgentPorId(id);
+    setname(agent.name);
     setrole(agent.role);
-    setPortraitAgent(agent.portraitAgent);
-
+    setPortraitAgent(agent.portrait);
     setEditButton(true);
     setFlag(id);
   }
 
   const update = () => {
-    instanciaListaAgentes.updateAgent(flag, nome, role, portraitAgent);
+    if (!name || !portraitAgent || !role) {
+      handleShowPopup(<AiFillWarning />, 'Preencha todos os campos', <AiFillWarning />, 'error', 3000);
+    } else {
+      handleShowPopup(null, 'Agente Editado', < BsFillBookmarkCheckFill />, 'sucess', 1000)
 
-    setEditButton(false);
-    setFlag(0);
+      instanciaListaAgentes.updateAgent(flag, name, role, portraitAgent);
+
+      setEditButton(false);
+      setFlag(0);
+      setname("");
+      setrole("");
+      setPortraitAgent("");
+    }
   }
 
   useEffect(() => {
@@ -130,7 +178,7 @@ export default function Home() {
       apiData.forEach((agenteData) => {
 
         const novoAgente = new AgentModel(
-          agenteData.nome,
+          agenteData.name,
           agenteData.portrait,
           agenteData.role,
         );
@@ -143,19 +191,27 @@ export default function Home() {
     }
   }, [apiData]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setBackgroundImage(images[Math.floor(Math.random() * images.length)]);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     apiData ? (
-      <div className={styles.divBody}>
+      <div className={styles.divBody} style={{ backgroundImage: `url(${backgroundImage})` }}>
         <Header />
         <div id={styles.formCreateAgent1}>
           <div id={styles.formCreateAgent2}>
-            <h2 className={styles.titlesForm}>Crie seu novo agente abaixo:</h2>
+            <h2 className={styles.titlesForm}>Crie seu novo agente</h2>
             <input
               className={styles.inputs}
               type="text"
-              placeholder="nome do agente"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              placeholder="name do agente"
+              value={name}
+              onChange={(e) => setname(e.target.value)}
             />
 
             <select className={styles.inputs}
@@ -190,7 +246,7 @@ export default function Home() {
             <input
               className={styles.inputs}
               type="text"
-              placeholder="nome da habilidade 1"
+              placeholder="name da habilidade 1"
               value={habilidade1}
               onChange={(e) => setHabilidade1(e.target.value)}
             />
@@ -198,7 +254,7 @@ export default function Home() {
             <input
               className={styles.inputs}
               type="text"
-              placeholder="nome da habilidade 2"
+              placeholder="name da habilidade 2"
               value={habilidade2}
               onChange={(e) => setHabilidade2(e.target.value)}
             />
@@ -206,7 +262,7 @@ export default function Home() {
             <input
               className={styles.inputs}
               type="text"
-              placeholder="nome da habilidade 3"
+              placeholder="name da habilidade 3"
               value={habilidade3}
               onChange={(e) => setHabilidade3(e.target.value)}
             />
@@ -237,12 +293,15 @@ export default function Home() {
               onChange={(e) => setEscudo(e.target.value)}
             />*/}
             <div id={styles.divBtn}>
-              { editButton ? (
-                <CompButton text={"Editar"} fn={update} />
-               ) : (
-                <button className={styles.btns} onClick={addAgent}>Adicionar Agente</button>
+              {editButton ? (
+                <button className={styles.btns} onClick={update}>Editar</button>
+              ) : (
+                <div className={styles.divBtnAddClear}>
+                <button className={styles.btns} onClick={addAgent}><BsFillPersonPlusFill /></button>
+                <button className={styles.btns} onClick={clearInputs}><BsTrash3Fill /></button>
+                </div>
               )
-            }
+              }
             </div>
           </div>
           <div id={styles.warnings} className={styles.hidden}>
@@ -271,19 +330,19 @@ export default function Home() {
                   role={
                     agent.role === 'support' ? (
                       <div className={styles.containerIcon}>
-                        <div className={styles.styleIcons}>
+                        <div className={styles.styleIconsSupport}>
                           <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt66cec9a29cd34e3d/62ea8957c87999116c02c674/Support.svg' />
                         </div>
                       </div>
                     ) : agent.role === 'tank' ? (
                       <div className={styles.containerIcon}>
-                        <div className={styles.styleIcons}>
+                        <div className={styles.styleIconsTank}>
                           <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt0f8b4fa502f0ea53/62ea8957ed429710b3d9b0b0/Tank.svg' />
                         </div>
                       </div>
                     ) : agent.role === 'damage' ? (
                       <div className={styles.containerIcon}>
-                        <div className={styles.styleIcons}>
+                        <div className={styles.styleIconsDamage}>
                           <img className={styles.iconsRoles} src='https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/bltc1d840ba007f88a8/62ea89572fdd1011027e605d/Damage.svg' />
                         </div>
                       </div>
@@ -296,12 +355,15 @@ export default function Home() {
                     )
                   }
                 />
-                <CompButton text={<BsTrash3Fill />} fn={() => removeAgent(agent)} />
-                <CompButton text={<FaPencilAlt />} fn={edit} />
+                <CompButton text={<BsFillPersonDashFill />} fn={() => removeAgent(agent)} />
+                <CompButton text={<FaPencilAlt />} fn={() => edit(agent.id)} />
               </div>
             ))}
             {console.log(listaAgentes)}
           </div>
+        </div>
+        <div id={styles.containerBtnTop}>
+          <button className={styles.btnTop} onClick={topButton}><GoMoveToTop /></button>
         </div>
         <Footer />
       </div>
