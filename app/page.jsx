@@ -33,7 +33,7 @@ const useImageValidator = (url) => {
   return isValid;
 }
 
-export default function Home({ params }) {
+export default function Home() {
 
   const [apiData, setApiData] = useState(null);
 
