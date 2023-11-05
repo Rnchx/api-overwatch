@@ -25,11 +25,23 @@
 
 .card2 {
     margin: 1.5rem;
-    border: 1.5px solid #f99b14;
     border-radius: 2px;
     text-align: center;
     background-color: whitesmoke;
     color: black;
+    transition: 1s;
+    border: 2px #f9991400 solid;
+}
+
+.card2:hover {
+    margin: 1.5rem;
+    border-radius: 2px;
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    transition: 1s;
+    border: 2px #f99914 solid;
 }
 
 .containerIcon {

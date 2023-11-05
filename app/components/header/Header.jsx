@@ -1,14 +1,15 @@
 
-import style from '../header/header.module.css'
+import style from './header.module.css'
 
 const Header = () => {
     return (
         <div className={style.principal}>
               <div>
-                <img src='/overwatchlogo.png' className={style.logo}/>
+                
+              <a href="../"><img src='/overwatchlogo.png' className={style.logo}/></a>
             </div>
             <div >
-                <img src='/over.png' className={style.imagem}></img>
+            <a href="../"><img src='/over.png' className={style.imagem}></img></a>
             </div>
         </div>
 

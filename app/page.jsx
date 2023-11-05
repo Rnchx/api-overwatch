@@ -2,7 +2,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
-import Link from 'next/link';
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import ImageLoading from './components/imageLoading/ImageLoading';
@@ -34,7 +33,7 @@ const useImageValidator = (url) => {
   return isValid;
 }
 
-export default function Home() {
+export default function Home({ params }) {
 
   const [apiData, setApiData] = useState(null);
 
@@ -61,7 +60,6 @@ export default function Home() {
   const [editButton, setEditButton] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState('https://bnetcmsus-a.akamaihd.net/cms/gallery/W94XAGJVK4871649353625265.jpg');
   const images = [
-    'https://bnetcmsus-a.akamaihd.net/cms/gallery/W94XAGJVK4871649353625265.jpg',
     'https://bnetcmsus-a.akamaihd.net/cms/gallery/1BJ1QA72FCN61649353624113.jpg',
     'https://images6.alphacoders.com/553/553471.jpg',
     'https://www.pockettactics.com/wp-content/sites/pockettactics/2022/10/overwatch-2-maps-2.jpg',
@@ -155,6 +153,10 @@ export default function Home() {
       setrole("");
       setPortraitAgent("");
     }
+  }
+
+  const bigCard = () => {
+
   }
 
   useEffect(() => {
@@ -300,8 +302,8 @@ export default function Home() {
                 <button className={styles.btns} onClick={update}>Editar</button>
               ) : (
                 <div className={styles.divBtnAddClear}>
-                <button className={styles.btns} onClick={addAgent}><BsFillPersonPlusFill /></button>
-                <button className={styles.btns} onClick={clearInputs}><BsTrash3Fill /></button>
+                  <button className={styles.btns} onClick={addAgent}><BsFillPersonPlusFill /></button>
+                  <button className={styles.btns} onClick={clearInputs}><BsTrash3Fill /></button>
                 </div>
               )
               }
@@ -322,7 +324,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.smallCard}>
+        <div className={styles.smallCard} onClick={bigCard}>
           <div className={styles.card1}>
             {listaAgentes.map((agent) => (
               <div className={styles.card2}>
