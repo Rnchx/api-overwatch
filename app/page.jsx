@@ -107,13 +107,6 @@ export default function Home() {
         setname("");
         setrole("");
         setPortraitAgent("");
-        //setDescricao("");
-        //setArmadura("");
-        //setVida("");
-        //setEscudo("");
-        //setHabilidade1("");
-        //setHabilidade2("");
-        //setHabilidade3("");
       }
     }
   };
@@ -143,20 +136,20 @@ export default function Home() {
     if (!name || !portraitAgent || !role) {
       handleShowPopup(<AiFillWarning />, 'Preencha todos os campos', <AiFillWarning />, 'error', 3000);
     } else {
-      handleShowPopup(null, 'Agente Editado', < BsFillBookmarkCheckFill />, 'sucess', 1000)
+      if (!isValid) {
+        handleShowPopup(<BiSolidErrorAlt />, 'Imagem não encontrada', <BiSolidErrorAlt />, 'error', 2000);
+      } else {
+        handleShowPopup(null, 'Agente Editado', < BsFillBookmarkCheckFill />, 'sucess', 1000)
 
-      instanciaListaAgentes.updateAgent(flag, name, role, portraitAgent);
+        instanciaListaAgentes.updateAgent(flag, name, role, portraitAgent);
 
-      setEditButton(false);
-      setFlag(0);
-      setname("");
-      setrole("");
-      setPortraitAgent("");
+        setEditButton(false);
+        setFlag(0);
+        setname("");
+        setrole("");
+        setPortraitAgent("");
+      }
     }
-  }
-
-  const bigCard = () => {
-
   }
 
   useEffect(() => {
@@ -210,7 +203,7 @@ export default function Home() {
         <Header />
         <div id={styles.formCreateAgent1}>
           <div id={styles.formCreateAgent2}>
-            <h2 className={styles.titlesForm}>Crie seu novo agente</h2>
+            <h2 className={styles.titlesForm}>Crie seu próprio agente</h2>
             <input
               className={styles.inputs}
               type="text"
@@ -324,7 +317,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.smallCard} onClick={bigCard}>
+        <div className={styles.smallCard}>
           <div className={styles.card1}>
             {listaAgentes.map((agent) => (
               <div className={styles.card2}>

@@ -5,9 +5,7 @@ class ListAgente {
         this.listAgents = []
     }
     addAgente(agent) {
-        console.log(agent);
         this.listAgents.push(agent)
-        console.log("Na class", this.listAgents)
     }
 
     getList() {
@@ -15,8 +13,6 @@ class ListAgente {
     }
 
     removeAgente(agente) {
-        console.log('esse é o agente' + agente)
-        console.log(this.listAgents)
         this.listAgents = this.listAgents.filter(item => item.id !== agente.id)
     }
 

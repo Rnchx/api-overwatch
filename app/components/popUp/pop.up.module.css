@@ -1,6 +1,18 @@
+@keyframes falling {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
 .mainDiv {
     position: fixed;
-    left: 50%;
+    left: 40%;
+    margin-bottom: 2rem;
     bottom: 1;
     transform: translate(-50%, -50%);
     padding: 16px;
@@ -11,12 +23,17 @@
     width: 20%;
     border-radius: 10px;
     height: 55px;
+    animation-name: falling;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
 }
 
-.error{
-    background-color: #202020eb;
+.error {
+    background-color: #202020e2;
     color: #f99914;
     font-weight: 700;
+    border: 1px solid #f99914;
 }
 
 .success{
