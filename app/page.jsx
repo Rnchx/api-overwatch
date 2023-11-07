@@ -216,7 +216,7 @@ export default function Home() {
             <input
               className={styles.inputs}
               type="text"
-              placeholder="name do agente"
+              placeholder="Nome do agente"
               value={name}
               onChange={(e) => setname(e.target.value)}
             />

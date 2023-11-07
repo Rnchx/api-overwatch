@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
-
 .divBody {
     margin: 0%;
     padding: 0%;
@@ -202,9 +200,9 @@
     color: white;
     background-color: #313037;
     border: 1px white solid;
-    padding: 0.1rem;
+    padding: 0.4rem;
     margin-bottom: 1.5rem;
-    border-radius: 3px;
+    border-radius: 8px;
 }
 
 .titlesForm {
