@@ -68,6 +68,7 @@ export default function Home() {
     'https://assets-prd.ignimgs.com/2022/09/27/esperanca-portugal-003-1080-1664272798292.jpg'
   ];
 
+
   const handleShowPopup = (icon1, message, icon2, type, time) => {
     setPopupMessage(message)
     setPopupIcon1(icon1)
@@ -198,10 +199,10 @@ export default function Home() {
     }
   }, [apiData]);
 
-   useEffect(() => {
+  useEffect(() => {
     const intervalId = setInterval(() => {
       setBackgroundImage(images[Math.floor(Math.random() * images.length)]);
-    }, 3000); 
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -364,7 +365,7 @@ export default function Home() {
                 />
                 <CompButton text={<BsFillPersonDashFill size={16} />} fn={() => removeAgent(agent)} />
                 <CompButton text={<FaPencilAlt size={16} />} fn={() => edit(agent.id)} />
-                <Link href={`eachAgent/${convertNameToLowercase(agent.name)}`}><CompButton text={<BiSolidBook size={16}/>} /></Link>
+                <Link href={`eachAgent/${convertNameToLowercase(agent.name)}`}><CompButton text={<BiSolidBook size={16} />} /></Link>
               </div>
             ))}
           </div>
