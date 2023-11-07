@@ -9,9 +9,5 @@ class Agent {
     generateId = () => {
         return Math.floor(Math.random() * 10000);
     }
-
-    console(){
-        
-    }
 }
 export default Agent;

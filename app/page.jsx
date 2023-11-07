@@ -18,8 +18,10 @@ import { BiSolidErrorAlt } from 'react-icons/bi'
 import { BsFillPersonPlusFill } from 'react-icons/bs'
 import { BsFillPersonDashFill } from 'react-icons/bs'
 import { GoMoveToTop } from 'react-icons/go'
+import { BiSolidBook } from 'react-icons/bi'
 import Popup from './components/popUp/PopUp';
 import CompButton from './components/compBtns/CompBtns';
+import Link from 'next/link';
 
 const instanciaListaAgentes = new ListAgente()
 
@@ -77,11 +79,18 @@ export default function Home() {
     }, time)
   }
 
-  function scrollToTop() {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
+
+  const convertNameToLowercase = (word) => {
+
+    let wordComplete = word.toLowerCase().replace('.', '');
+
+    return wordComplete;
   }
 
   const addAgent = () => {
@@ -189,10 +198,10 @@ export default function Home() {
     }
   }, [apiData]);
 
-  useEffect(() => {
+   useEffect(() => {
     const intervalId = setInterval(() => {
       setBackgroundImage(images[Math.floor(Math.random() * images.length)]);
-    }, 5000);
+    }, 3000); 
 
     return () => clearInterval(intervalId);
   }, []);
@@ -353,11 +362,11 @@ export default function Home() {
                     )
                   }
                 />
-                <CompButton text={<BsFillPersonDashFill />} fn={() => removeAgent(agent)} />
-                <CompButton text={<FaPencilAlt />} fn={() => edit(agent.id)} />
+                <CompButton text={<BsFillPersonDashFill size={16} />} fn={() => removeAgent(agent)} />
+                <CompButton text={<FaPencilAlt size={16} />} fn={() => edit(agent.id)} />
+                <Link href={`eachAgent/${convertNameToLowercase(agent.name)}`}><CompButton text={<BiSolidBook size={16}/>} /></Link>
               </div>
             ))}
-            {console.log(listaAgentes)}
           </div>
         </div>
         <div id={styles.containerBtnTop}>

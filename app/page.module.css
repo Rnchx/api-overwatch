@@ -4,7 +4,19 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
 }
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
 
 .smallCard {
     display: flex;

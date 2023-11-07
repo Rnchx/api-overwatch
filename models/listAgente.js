@@ -6,6 +6,7 @@ class ListAgente {
     }
     addAgente(agent) {
         this.listAgents.push(agent)
+        console.log('lista de agentes' + this.listAgents);
     }
 
     getList() {
