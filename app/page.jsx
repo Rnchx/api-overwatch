@@ -327,6 +327,12 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div>
+          <button>todos</button>
+          <button>Dano</button>
+          <button>Suporte</button>
+          <button>Tanque</button>
+        </div>
         <div className={styles.smallCard}>
           <div className={styles.card1}>
             {listaAgentes.map((agent) => (
