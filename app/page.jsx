@@ -133,13 +133,13 @@ export default function Home() {
   }
 
   const edit = (id) => {
-    console.log('edit', id);
     const agent = instanciaListaAgentes.getAgentPorId(id);
     setname(agent.name);
     setrole(agent.role);
     setPortraitAgent(agent.portrait);
     setEditButton(true);
     setFlag(id);
+    scrollToTop();
   }
 
   const update = () => {
@@ -328,10 +328,10 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <button>todos</button>
+          {/* <button>todos</button>
           <button>Dano</button>
           <button>Suporte</button>
-          <button>Tanque</button>
+          <button>Tanque</button> */}
         </div>
         <div className={styles.smallCard}>
           <div className={styles.card1}>
